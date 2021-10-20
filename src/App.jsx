@@ -3,6 +3,8 @@ import NavBar from './Component/NavBar/NavBar';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import ItemListContainer from './Component/ItemListContainer/ItemListContainer';
+import ItemCount from ' ./Component/ItemCount/ItemCount';
+
 
 
 
@@ -12,6 +14,7 @@ function App() {
     <div>
           <NavBar />
           <ItemListContainer titulo={titulo} /> 
+          <ItemCount /> 
     </div>
   );
 }
