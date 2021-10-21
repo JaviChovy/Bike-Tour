@@ -50,19 +50,7 @@ const NavBar = () => {
                             <li><a class="dropdown-item" href="#">Kids</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Mecanica
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"></a>Ensamble</li>
-                            <li><a class="dropdown-item" href="#">Parchado/Slime</a></li>
-                            <li><a class="dropdown-item" href="#">Service total</a></li>
-                        </ul>
-                    </li>
-                    
-                </ul>
+                    </ul>
             </div>
             <CartWidget />
         </div>

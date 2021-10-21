@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {useState} from 'react'
-import { CartContext } from "../../CartContext";
+
 
 
 const ItemCount = ({stock, initial = 1, onAdd, item}) => {
@@ -29,13 +29,7 @@ const ItemCount = ({stock, initial = 1, onAdd, item}) => {
         onAdd(quantity)
 
         const producto ={
-            id:item.id,
-            category:item.category,
-            imgUrl:item.imgUrl,
-            price:item.price,
-            title:item.title,
-            description:item.description,
-            quantity:quantity
+        quantity:quantity
         }
         const temporal = carrito;
         temporal.push(producto);

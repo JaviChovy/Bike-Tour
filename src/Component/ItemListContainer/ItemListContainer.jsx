@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemList from '../ItemList/ItemList'
 
 function ItemListContainer(titulo) {
     return (
@@ -6,6 +7,8 @@ function ItemListContainer(titulo) {
             <h1>
                 {titulo.titulo}
             </h1>
+            <ItemList />
+        
         </div>
     )
 }
