@@ -1,13 +1,14 @@
 import React from "react";
 import './NavBar.css';
 import cart from './carrito.svg'
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
     return (
-        <a href="/Cart">
+        <Link to="/Cart">
             
-            <img src={cart} alt="" srcset="" />
-        </a>
+            <img src={cart} alt="" />
+        </Link>
     )
 }
 

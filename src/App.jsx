@@ -3,19 +3,22 @@ import NavBar from './Component/NavBar/NavBar';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.min.js"
 import ItemListContainer from './Component/ItemListContainer/ItemListContainer';
-import ItemCount from ' ./Component/ItemCount/ItemCount';
-
+import ItemDetailContainer from './Component/ItemDetailContainer'
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 
 
 function App() {
-  let titulo ='Bike Tour'
   return (
-    <div>
+        <BrowserRouter>
           <NavBar />
-          <ItemListContainer titulo={titulo} /> 
-          <ItemCount /> 
-    </div>
+                    <Switch>
+                        <Route exact path="/" component={ItemListContainer}></Route>
+                        <Route exact path="/Categoria/:id" component={ItemListContainer}></Route>
+                        <Route path="/item/:id" component={ItemDetailContainer}/>
+                    </Switch>
+          
+        </BrowserRouter>
   );
 }
 

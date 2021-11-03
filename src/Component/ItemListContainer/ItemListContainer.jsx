@@ -1,11 +1,11 @@
 import React from 'react'
 import ItemList from '../ItemList/ItemList'
 
-function ItemListContainer(titulo) {
+function ItemListContainer() {
     return (
         <div>
             <h1>
-                {titulo.titulo}
+                Bike Tour
             </h1>
             <ItemList />
         

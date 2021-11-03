@@ -3,52 +3,37 @@ import './NavBar.css'
 
 
 
-// Components
+// Components+-
 import CartWidget from "./CartWidget"
-
-
+import { Link } from "react-router-dom";
 
 
 const NavBar = () => {
 
     return (
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-xl">
-        <a class="navbar-brand" href="#">Bike Tour</a>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-xl">
+        <Link className="navbar-brand" to="/">Bike Tour</Link>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Inicio</a>
+            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link className="nav-link" aria-current="page" to="/">Inicio</Link>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    <li className="nav-item dropdown">
+                        <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Mountain Bike
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">26'</a></li>
-                            <li><a class="dropdown-item" href="#">27,5'</a></li>
-                            <li><a class="dropdown-item" href="#">29'</a></li>
-                            <li><a class="dropdown-item" href="#">Kids</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Route Bike
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">26'</a></li>
-                            <li><a class="dropdown-item" href="#">27,5'</a></li>
-                            <li><a class="dropdown-item" href="#">29'</a></li>
-                            <li><a class="dropdown-item" href="#">Kids</a></li>
-                        </ul>
+                            Bike
+                        </Link>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><Link className="dropdown-item" to={`/Categoria/Mountain`}>Mountain</Link></li>
+                            <li><Link className="dropdown-item" to={`/Categoria/Route`}>Route</Link></li>
+                                                    </ul>
                     </li>
                     </ul>
             </div>

@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Item = ({id, title, price, category, description, imgUrl}) => {
+const Item = ({id, title, price, category, description, imgUrl, stock}) => {
 
     return(
-        <Link to={`/Detalle/${id}`} className="col text-decoration-none text-black">
+        <Link to={`/item/${id}`} className="col text-decoration-none text-black">
             <div className="card img-thumbnail" id="cards">
                 <img className="card-img-top" src={imgUrl} alt={title} />
                 <div className="card-body">
@@ -25,6 +26,7 @@ const Item = ({id, title, price, category, description, imgUrl}) => {
                 </div>
             </div>            
         </Link>
+
     )
 }
 
