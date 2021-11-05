@@ -9,7 +9,7 @@ function ItemDetailContainer() {
     const {id} = useParams()
 
     useEffect(() => {
-
+        
         const promesa = new Promise((resolve,reject) => {
             setTimeout(() => {
                 const producto = DB_BIKE.find(producto => producto.id == id)
