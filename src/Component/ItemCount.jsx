@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {useState} from 'react'
+import useCartContext from "./context/CartContext";
 
 
 
@@ -7,7 +8,7 @@ const ItemCount = ({stock, initial = 1, onAdd, item}) => {
 
 
     const [quantity, setQuantity] = useState(initial)
-    const [carrito, setCarrito]=useContext(CartContext)
+    const [carrito, setCarrito]=useContext(useCartContext)
     
     // Suma cantidad 
     const aumentar = () => {
@@ -45,7 +46,8 @@ const ItemCount = ({stock, initial = 1, onAdd, item}) => {
                     <span>
                             {quantity}                    
                     </span>
-                    <button onClick={aumentar} type="button" className="btn btn-secondary btn-sm">
+                    <button 
+                    onClick={aumentar} type="button" className="btn btn-secondary btn-sm">
                     +                
                     </button>
             </div>
@@ -53,10 +55,14 @@ const ItemCount = ({stock, initial = 1, onAdd, item}) => {
                     Stock disponible: {stock}
             </span>  
             <div className="d-grid gap-2">
-                            <button onClick={() => {agregar(); alerta()}} onAdd={onAdd} className="btn btn-success">Agregar al carrito</button>
+                    { stock > 0
+                    ?   <button onClick={ () => {onAdd(quantity); alerta()} } className="btn btn-success">Agregar al carrito</button>
+                    :   <button disabled className="btn btn-success">Producto sin stock</button>
+                    }
             </div>           
         </>
     )
+
 }
 
 export default ItemCount;
