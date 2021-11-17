@@ -5,7 +5,9 @@ import "bootstrap/dist/js/bootstrap.min.js"
 import ItemListContainer from './Component/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './Component/ItemDetailContainer'
 import {BrowserRouter, Switch, Route} from "react-router-dom";
-import Cart from './Component/card';
+import Cart from './Component/Cart';
+import { CartProvider } from './Component/context/CartContext';
+
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
                           <Route exact path="/" component={ItemListContainer}></Route>
                           <Route exact path="/Categoria/:id" component={ItemListContainer}></Route>
                           <Route path="/item/:id" component={ItemDetailContainer}/>
+                          <Route exact path="/Cart" component={Cart}></Route>                          
                       </Switch>
           
           </BrowserRouter>

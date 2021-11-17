@@ -56,7 +56,7 @@ const ItemCount = ({stock, initial = 1, onAdd, item}) => {
             </span>  
             <div className="d-grid gap-2">
                     { stock > 0
-                    ?   <button onClick={ () => {onAdd(quantity); alerta()} } className="btn btn-success">Agregar al carrito</button>
+                    ?   <button onClick={ () => {onAdd(quantity); } } className="btn btn-success">Agregar al carrito</button>
                     :   <button disabled className="btn btn-success">Producto sin stock</button>
                     }
             </div>           
