@@ -25,7 +25,7 @@ const ItemCount = ({stock, initial = 1, onAdd, item}) => {
         }
     }
 
-    const agregar = () => {
+    const Agregar = () => {
         onAdd(quantity)
 
         const producto ={
