@@ -7,7 +7,6 @@ import ItemDetailContainer from './Component/ItemDetailContainer'
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Cart from './Component/Cart';
 import { CartProvider } from './Component/context/CartContext';
-import { getFirestore } from "./firebase";
 
 
 

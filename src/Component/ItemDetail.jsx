@@ -1,13 +1,8 @@
-
 import React from 'react'
-import ItemCount from './ItemCount';
+// import ItemCount from './ItemCount';
 
 
-
-
-
-
-function ItemDetail() {
+function ItemDetail({producto}) {
     return (        
         <div className="container-xl">
                 <div className="row my-5">

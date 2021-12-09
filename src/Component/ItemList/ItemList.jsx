@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react';
 import { useParams } from 'react-router';
-import Loader from 'react-spinners/ClipLoader';
+// import Loader from 'react-spinners/ClipLoader';
+import { getFirestore } from '../../firebase/index';
 import Item from '../Item'
 
 export const DB_BIKE = 
@@ -75,30 +76,62 @@ const ItemList = () => {
     const {id} = useParams()
     const [estado,setEstado] = useState("");
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        if(id){
-            const promesa = new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    resolve(DB_BIKE.filter(items => items.category === id))
-                },2000)
-            })
-            promesa.then(items => setItems(items))
+    //     if(id){
+    //         const promesa = new Promise((resolve,reject) => {
+    //             setTimeout(() => {
+    //                 resolve(DB_BIKE.filter(items => items.category === id))
+    //             },2000)
+    //         })
+    //         promesa.then(items => setItems(items))
+    //     } else {
+    //         const promesa = new Promise((resolve,reject) => {
+    //             setTimeout(() => {
+    //                 resolve(DB_BIKE)
+    //             },2000)
+    //         })
+    //         promesa.then(items => {
+    //             setItems(items)
+    //             setEstado(<Loader />);
+    //         })
+    //         promesa.finally( ()=>{
+    //             setTimeout(function(){ setEstado(''); ; }, 2000);
+    //         })
+    //     }
+    // },[id])   
+
+    useEffect(() => {
+
+        const collection = getFirestore.collection("productos")
+        let query
+        // setEstado(<Loader />)
+
+        if (id === undefined) {
+            query = collection.get()
         } else {
-            const promesa = new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    resolve(DB_BIKE)
-                },2000)
-            })
-            promesa.then(items => {
-                setItems(items)
-                setEstado(<Loader />);
-            })
-            promesa.finally( ()=>{
-                setTimeout(function(){ setEstado(''); ; }, 2000);
-            })
+            query = collection.where('category', '==', id).get()
         }
-    },[id])   
+        query
+            .then((resultado) => {
+                const documentos = resultado.docs
+
+                const array_final_de_productos = []
+
+                documentos.forEach(producto => {
+                    const id = producto.id
+                    const el_resto = producto.data()
+                    const producto_final = {id,...el_resto}
+                    array_final_de_productos.push(producto_final)
+                    setTimeout(function(){ setEstado(""); ; }, 10)
+                })
+
+                setItems(array_final_de_productos)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    },[id])
 
     return (
                 <section className="my-5">

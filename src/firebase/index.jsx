@@ -1,4 +1,4 @@
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import 'firebase/firestore'
 
 // Your web app's Firebase configuration
@@ -9,17 +9,18 @@ const firebaseConfig = {
   storageBucket: "bike-tour-f0941.appspot.com",
   messagingSenderId: "522665344357",
   appId: "1:522665344357:web:86043e36e883200e9ab58c",
-  measurementId: "${config.measurementId}"
+  // measurementId: "${config.measurementId}"
 };
   
 // Initialize Firebase
-// const app = firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
-// export const getFirestore = () => app;
+// const getFirestore = () => app;
 
 // export {getFirestore}; 
 
-const app = firebase.initializeApp(firebaseConfig);
+// const app = firebase.initializeApp(firebaseConfig);
 
-export const firestoreNFT = firebase.firestore(app)
+export const getFirestore = firebase.firestore(app)
+
 
